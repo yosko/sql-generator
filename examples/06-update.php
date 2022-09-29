@@ -1,15 +1,5 @@
 <?php
 /**
- * Insert a new row
- */
-$insert = new \Yosko\SqlGenerator($dbh);
-$insert->insert('Series');
-$insert->setField('title', 'Tintin', \PDO::PARAM_STR);
-
-// true on success, false on error
-$result = $insert->execute();
-
-/**
  * Update an existing row
  */
 $update = new \Yosko\SqlGenerator($dbh);
@@ -21,7 +11,7 @@ $update->where('title = "Thorgal"');
 $result = $update->execute();
 
 /**
- * check added and updated data
+ * check updated data
  */
 $select = new \Yosko\SqlGenerator($dbh);
 $select->select('Series');

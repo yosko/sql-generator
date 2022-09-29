@@ -136,15 +136,14 @@ function phpArrayToHtml($data)
     </article>
 
     <article>
-        <header><h2><code>->insert()</code> and <code>->update()</code></h2></header>
+        <header><h2><code>->insert()</code></h2></header>
         <div class="columns">
             <div>
-                <p>Here is a simple <code>SELECT *</code> query.</p>
-                <?php $file = 'examples/05-edit.php';
+                <?php $file = 'examples/05-insert.php';
                 display($file); ?>
             </div>
             <div>
-                <p>...</p>
+                <p><em>Tintin</em> added:</p>
                 <?php
                 execFile($file);
                 phpArrayToHtml($data);
@@ -154,28 +153,93 @@ function phpArrayToHtml($data)
     </article>
 
     <article>
-        <header><h2>Table aliases</h2></header>
-        <p>TODO</p>
-        <ul>
-            <li>linking methods (all of them return the query object</li>
-            <li>lastInsertId</li>
-            <li>delete</li>
-
-            <li>Transaction
-                <ul>
-                    <li>beginTransaction</li>
-                    <li>inTransaction</li>
-                    <li>commit</li>
-                    <li>rollback</li>
-                </ul>
-            </li>
-            <li>toString</li>
-            <li>bindParam ?</li>
-            <li>type ?</li>
-            <li>getParams</li>
-
-        </ul>
+        <header><h2><code>->update()</code></h2></header>
+        <div class="columns">
+            <div>
+                <?php $file = 'examples/06-update.php';
+                display($file); ?>
+            </div>
+            <div>
+                <p><em>Thorgal</em> updated as <em>Thorgal Aegirsson</em>:</p>
+                <?php
+                execFile($file);
+                phpArrayToHtml($data);
+                ?>
+            </div>
+        </div>
     </article>
+
+    <article>
+        <header><h2><code>->delete()</code></h2></header>
+        <div class="columns">
+            <div>
+                <?php $file = 'examples/07-delete.php';
+                display($file); ?>
+            </div>
+            <div>
+                <p>Success status and resulting data:</p>
+                <?php
+                execFile($file);
+                phpArrayToHtml($data);
+                ?>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <header><h2>Linking method calls</h2></header>
+        <div class="columns">
+            <div>
+                <p>Every method returns the <code>SqlGenerator</code> query object (<code>$this</code>) so that you can
+                    link methods in a single instruction:</p>
+                <?php $file = 'examples/08-link.php';
+                display($file); ?>
+            </div>
+            <div>
+                <?php
+                execFile($file);
+                phpArrayToHtml($data);
+                ?>
+            </div>
+        </div>
+    </article>
+
+    <article>
+        <header><h2>Transactions</h2></header>
+        <p>You can use transactions and also check if you are in one:</p>
+        <?php displayAndExec('examples/09-transaction.php'); ?>
+    </article>
+
+    <article>
+        <header><h2>Other useful methods</h2></header>
+        <div class="columns">
+
+            <div>
+                <p>Example of use for the remaining available methods:</p>
+                <?php $file = 'examples/10-other.php';
+                display($file); ?>
+            </div>
+            <div>
+                <?php execFile($file); ?>
+
+                <table>
+                    <tbody><?php
+                    foreach ($data as $key => $value) { ?>
+                        <tr>
+                            <th><?php echo $key; ?></th>
+                            <td><pre class="simple"><?php
+                                    var_export($value);
+                                    ?></pre>
+                            </td>
+                        </tr>
+                        <?php
+                    } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </article>
+
 </main>
 </body>
 </html>

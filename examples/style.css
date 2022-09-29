@@ -37,9 +37,14 @@ main {
 
 pre {
     border: 1px solid gray;
-    margin: 0;
+    margin: 16px 0;
     padding: 0.5em;
     white-space: pre-wrap;
+}
+pre.simple {
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 code {

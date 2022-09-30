@@ -1,0 +1,12 @@
+{
+  "name": "yosko/sql-generator",
+  "description": "PHP library to generate and execute SQL queries in an OOP fashion using prepared statements via PDO.",
+  "type": "library",
+  "license": "LGPL",
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "files": ["src/SqlGenerator.php"]
+  }
+}
